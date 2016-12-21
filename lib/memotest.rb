@@ -2,6 +2,7 @@ class Memotest
 	def initialize
 		@valor1 = ""
 		@valor2 = ""
+		@boton_presionado =""
 	end
 
 	def presiona_1
@@ -10,7 +11,7 @@ class Memotest
 		else
 			@valor2 ="A"
 		end
-		return "A"
+		@boton_presionado ="b1"
 	end
 
 	def presiona_2
@@ -19,7 +20,7 @@ class Memotest
 		else
 			@valor2 ="B"
 		end
-		return "B"
+		@boton_presionado ="b2"
 	end
 
 	def presiona_3
@@ -28,7 +29,7 @@ class Memotest
 		else
 			@valor2 ="B"
 		end
-		return "B"
+		@boton_presionado ="b3"
 	end
 
 	def presiona_4
@@ -37,7 +38,7 @@ class Memotest
 		else
 			@valor2 ="A"
 		end
-		return "A"
+		@boton_presionado ="b4"
 	end
 
 	def muestra_resultado 
@@ -46,10 +47,21 @@ class Memotest
 
 		elsif (@valor1 == @valor2 )
 			@resultado = "OK - son iguales"
+			@valor1 = ""
+			@valor2 = "" 
 		else
 			@resultado = ":( - no son iguales"
+			@valor1 = ""
+			@valor2 = "" 
 		end
 		return @resultado
+
+	end
+
+	def boton_presionado
+		if (@boton_presionado == "b1")
+			
+		end
 	end
 end
 
