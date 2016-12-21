@@ -1,25 +1,22 @@
 <h1>Tablero Memotest</h1>
-
+<% @fila = 0 %>
+<% @columna = 0 %>
+<% @num = 0 %>
 <table>
+<% @@filas.times do %>
+<% @fila += 1 %>
 <tr>
+<% @@columnas.times do %>
+<% @columna += 1 %>
+<% @num += 1 %>
 <td>
-<form method="post" action="/presionaBoton1">
-	<input type="submit" value="_" id="b1"/>
-</form></td>
-<td>
-<form method="post" action="/presionaBoton2">
-	<input type="submit" value="_" id="b2" />
-</form></td>
+<form method="post" action="/presionaBoton/<%=@num%>">
+	<input type="submit" value="_" id="b<%=@num%>"/>
+</form>
+</td>
+<% end %>
 </tr>
-<tr>
-<td>
-<form method="post" action="/presionaBoton3">
-	<input type="submit" value="_" id="b3"/>
-</form></td>
-<td>
-<form method="post" action="/presionaBoton4">
-	<input type="submit" value="_" id="b4"/>
-</form></td>
-</tr>
+<% end %>
 </table>
+
 <p> Resultado Memotest : <%= @resultado %>  </p>

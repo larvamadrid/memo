@@ -1,5 +1,7 @@
 class Memotest
 	def initialize
+		@filas = 4
+		@columnas = 4
 		@valor1 = ""
 		@valor2 = ""
 		@boton_presionado =""
