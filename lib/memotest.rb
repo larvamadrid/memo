@@ -49,6 +49,7 @@ class Memotest
 		else
 			@resultado = ":( - no son iguales"
 		end
+		return @resultado
 	end
 end
 
