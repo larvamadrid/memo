@@ -8,6 +8,12 @@ get '/' do
 	erb:tablero
 end
 
+
+post '/reset' do
+	@@memo.reiniciar
+	erb:tablero
+end
+
 post '/presionaBoton/:numero' do
 	error = false
 

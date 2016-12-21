@@ -5,8 +5,26 @@ class Memotest
 		@valor1 = ""
 		@valor2 = ""
 		@boton_presionado =""
+		@presionado = []
+		@correctos = []
 	end
-
+	def esta_presionado presionado
+		if @presionado.include? presionado 
+			return true
+		elsif @correctos.include? presionado
+			return true
+		else 
+			return false
+		end
+		#return (@presionado.include? presionado) or (@correctos.include? presionado)
+	end
+	def reiniciar
+		@presionado = []
+		@correctos = []
+		@boton_presionado = []
+		@valor1 = ""
+		@valor2 = ""
+	end
 	def presiona_1
 		if (@valor1 == "")
 			@valor1 ="A"
@@ -14,6 +32,7 @@ class Memotest
 			@valor2 ="A"
 		end
 		@boton_presionado ="b1"
+		@presionado.push(1)
 	end
 
 	def presiona_2
@@ -23,6 +42,7 @@ class Memotest
 			@valor2 ="B"
 		end
 		@boton_presionado ="b2"
+		@presionado.push(2)
 	end
 
 	def presiona_3
@@ -32,6 +52,7 @@ class Memotest
 			@valor2 ="B"
 		end
 		@boton_presionado ="b3"
+		@presionado.push(3)
 	end
 
 	def presiona_4
@@ -41,6 +62,7 @@ class Memotest
 			@valor2 ="A"
 		end
 		@boton_presionado ="b4"
+		@presionado.push(4)
 	end
 
 	def muestra_resultado 
@@ -51,10 +73,12 @@ class Memotest
 			@resultado = "OK - son iguales"
 			@valor1 = ""
 			@valor2 = "" 
+			@correctos.push(@presionado)
 		else
 			@resultado = ":( - no son iguales"
 			@valor1 = ""
 			@valor2 = "" 
+			@presionado = []
 		end
 		return @resultado
 
