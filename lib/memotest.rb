@@ -7,10 +7,19 @@ class Memotest
 		@boton_presionado =""
 		@presionado = []
 		@correctos = []
-		@valoresbotones =["-","A","C","D","B","D","B","A","C"]
+		@valoresbotones_ori =["A","C","D","B","D","B","A","C"]
+		@valoresbotones =[]
 		@intentos = 0
 		@maximo = 5
-
+		random_array false
+	end
+	def random_array bandera
+		@valoresbotones =["-"]
+		if ( bandera == true)
+			@valoresbotones.concat(@valoresbotones_ori.shuffle)
+		else
+		@valoresbotones.concat(@valoresbotones_ori)
+		end
 	end
 	def esta_presionado presionado
 		if @intentos < @maximo
@@ -55,6 +64,8 @@ class Memotest
 		@valor1 = ""
 		@valor2 = ""
 		@intentos = 0
+
+		random_array true 
 	end
 	def presiona numero
 		if (@valor1 == "")
