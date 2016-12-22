@@ -1,13 +1,13 @@
 class Memotest
-	def initialize
-		@filas = 4
-		@columnas = 4
+	def initialize filas, columnas
+		@filas = filas
+		@columnas = columnas
 		@valor1 = ""
 		@valor2 = ""
 		@boton_presionado =""
 		@presionado = []
 		@correctos = []
-		@valoresbotones =["A","B","B","A"]
+		@valoresbotones =["-","A","C","D","B","A","C","D","B"]
 
 	end
 	def esta_presionado presionado
@@ -23,11 +23,20 @@ class Memotest
 
 	def valor_boton presionado
 		if esta_presionado(presionado) 
-			return @valoresbotones[presionado-1]
+			return @valoresbotones[presionado]
 		else
 			return "-"
 		end
 	end
+
+	def get_filas
+		return @filas
+	end
+
+	def get_columnas
+		return @columnas
+	end
+
 	def reiniciar
 		@presionado = []
 		@correctos = []
@@ -35,69 +44,41 @@ class Memotest
 		@valor1 = ""
 		@valor2 = ""
 	end
-	def presiona_1
+	def presiona numero
 		if (@valor1 == "")
-			@valor1 ="A"
+			@valor1 = @valoresbotones[numero]
+			if (@presionado.size == 2 )
+				@presionado = [] end
 		else
-			@valor2 ="A"
+			@valor2 =@valoresbotones[numero]
 		end
-		@boton_presionado ="b1"
-		@presionado.push(1)
-	end
 
-	def presiona_2
-		if (@valor1 == "")
-			@valor1 ="B"
-		else
-			@valor2 ="B"
-		end
-		@boton_presionado ="b2"
-		@presionado.push(2)
-	end
-
-	def presiona_3
-		if (@valor1 == "")
-			@valor1 ="B"
-		else
-			@valor2 ="B"
-		end
-		@boton_presionado ="b3"
-		@presionado.push(3)
-	end
-
-	def presiona_4
-		if (@valor1 == "")
-			@valor1 ="A"
-		else
-			@valor2 ="A"
-		end
-		@boton_presionado ="b4"
-		@presionado.push(4)
+		@presionado.push(numero)
 	end
 
 	def muestra_resultado 
-		if (@valor1 == "" or @valor2 == "")
-			@resultado = "No ha presionado los dos botones necesarios."
+		if (@correctos.size != (@filas * @columnas))
+			if (@valor1 == "" or @valor2 == "")
+				@resultado = "No ha presionado los dos botones necesarios."
 
-		elsif (@valor1 == @valor2 )
-			@resultado = "OK - son iguales"
-			@valor1 = ""
-			@valor2 = "" 
-			@correctos.push(@presionado)
+			elsif (@valor1 == @valor2 )
+				@resultado = "OK - son iguales"
+				@valor1 = ""
+				@valor2 = "" 
+				@correctos.concat(@presionado)
+			else
+				@resultado = ":( - no son iguales"
+				@valor1 = ""
+				@valor2 = "" 
+				#@presionado = []
+			end
 		else
-			@resultado = ":( - no son iguales"
-			@valor1 = ""
-			@valor2 = "" 
-			@presionado = []
+			@resultado ="WINNER"
 		end
 		return @resultado
 
 	end
 
-	def boton_presionado
-		if (@boton_presionado == "b1")
-			
-		end
-	end
+
 end
 

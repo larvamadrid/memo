@@ -12,5 +12,5 @@ Scenario: Presiona boton 1
 Scenario: Presiona boton 1, presiona boton 3
 	Given Accedo Tablero
 	When se presiona el boton 1
-	When se presiona el boton 4
+	When se presiona el boton 5
 	Then  veo  "OK - son iguales"
