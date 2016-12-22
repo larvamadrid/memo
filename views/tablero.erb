@@ -13,7 +13,7 @@
 <td>
 
 <form method="post" action="/presionaBoton/<%=@num%>">
-	<input type="image" src= "/img/<%=@@memo.valor_boton(@num)%>.jpg" alt=<%=@@memo.valor_boton(@num)%> id="b<%=@num%>"
+	<input type="image" width=125 height=125 src= "/img/<%=@@memo.valor_boton(@num)%>.jpg" alt=<%=@@memo.valor_boton(@num)%> id="b<%=@num%>"
 	<%= if @@memo.esta_presionado(@num) == true then "disabled" end %>
 	/>
 </form>
@@ -26,10 +26,10 @@
 <p>Vidas: <%=@@intentos%></p>
 <p><bold> <%= @resultado %></bold></p>
 <% if (@resultado == "LOSER") %>
- <img src="/img/Loser.jpg" >
+ <img src="/img/Loser.jpg" width=250 heigth=250  >
 <% end %>
 <% if (@resultado == "WINNER") %>
- <img src="/img/ThumbsUP.jpg" >
+ <img src="/img/ThumbsUP.jpg" width=250 heigth=250 >
 <% end %>
 <form method="post" action="/reset">
 	<input type="submit" value="Reiniciar" />
