@@ -8,15 +8,21 @@ class Memotest
 		@presionado = []
 		@correctos = []
 		@valoresbotones =["-","A","C","D","B","A","C","D","B"]
+		@intentos = 0
+		@maximo = 5
 
 	end
 	def esta_presionado presionado
-		if @presionado.include? presionado 
+		if @intentos < @maximo
+			if @presionado.include? presionado 
+				return true
+			elsif @correctos.include? presionado
+				return true
+			else 
+				return false
+			end
+		else
 			return true
-		elsif @correctos.include? presionado
-			return true
-		else 
-			return false
 		end
 		#return (@presionado.include? presionado) or (@correctos.include? presionado)
 	end
@@ -36,13 +42,19 @@ class Memotest
 	def get_columnas
 		return @columnas
 	end
+	def get_maximo
+		return @maximo
+	end
+	def get_intentos
+		return @intentos
+	end
 
 	def reiniciar
 		@presionado = []
 		@correctos = []
-		@boton_presionado = []
 		@valor1 = ""
 		@valor2 = ""
+		@intentos = 0
 	end
 	def presiona numero
 		if (@valor1 == "")
@@ -57,23 +69,23 @@ class Memotest
 	end
 
 	def muestra_resultado 
-		if (@correctos.size != (@filas * @columnas))
-			if (@valor1 == "" or @valor2 == "")
-				@resultado = "No ha presionado los dos botones necesarios."
-
-			elsif (@valor1 == @valor2 )
-				@resultado = "OK - son iguales"
-				@valor1 = ""
-				@valor2 = "" 
-				@correctos.concat(@presionado)
-			else
-				@resultado = ":( - no son iguales"
-				@valor1 = ""
-				@valor2 = "" 
-				#@presionado = []
-			end
+		if (@valor1 == "" or @valor2 == "")
+			@resultado = "No ha presionado los dos botones necesarios."
+		elsif (@valor1 == @valor2 )
+			@resultado = "OK - son iguales"
+			@valor1 = ""
+			@valor2 = "" 
+			@correctos.concat(@presionado)
 		else
+			@resultado = ":( - no son iguales"
+			@valor1 = ""
+			@valor2 = "" 
+			@intentos += 1
+		end
+		if (@correctos.size == (@filas * @columnas))
 			@resultado ="WINNER"
+		elsif @intentos >= @maximo
+			@resultado = "LOSER"
 		end
 		return @resultado
 

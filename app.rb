@@ -6,6 +6,8 @@ get '/' do
 	@@memo = Memotest.new(2,4)
 	@@filas = @@memo.get_filas
 	@@columnas = @@memo.get_columnas
+	@@maximo = @@memo.get_maximo
+	@@intentos = @@maximo - @@memo.get_intentos
 	erb:tablero
 end
 
@@ -17,7 +19,6 @@ end
 
 post '/presionaBoton/:numero' do
 	error = false
-
 	@numero = params['numero'].to_i
 
 	if (@numero <= (@@filas *@@columnas))
@@ -31,6 +32,6 @@ post '/presionaBoton/:numero' do
 	else
 		@resultado = @numero
 	end
-
+	@@intentos = @@maximo - @@memo.get_intentos
 	erb:tablero
 end
