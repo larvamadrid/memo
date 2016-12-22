@@ -8,3 +8,9 @@ Scenario: Presiona boton 1
 	Given Accedo Tablero
 	When se presiona el boton 1
 	Then  veo  "No ha presionado los dos botones necesarios."
+
+Scenario: Presiona boton 1, presiona boton 3
+	Given Accedo Tablero
+	When se presiona el boton 1
+	When se presiona el boton 4
+	Then  veo  "OK - son iguales"

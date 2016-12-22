@@ -7,6 +7,8 @@ class Memotest
 		@boton_presionado =""
 		@presionado = []
 		@correctos = []
+		@valoresbotones =["A","B","B","A"]
+
 	end
 	def esta_presionado presionado
 		if @presionado.include? presionado 
@@ -17,6 +19,14 @@ class Memotest
 			return false
 		end
 		#return (@presionado.include? presionado) or (@correctos.include? presionado)
+	end
+
+	def valor_boton presionado
+		if esta_presionado(presionado) 
+			return @valoresbotones[presionado-1]
+		else
+			return "-"
+		end
 	end
 	def reiniciar
 		@presionado = []

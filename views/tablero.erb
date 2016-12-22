@@ -11,7 +11,7 @@
 <% @num += 1 %>
 <td>
 <form method="post" action="/presionaBoton/<%=@num%>">
-	<input type="submit" value="_" id="b<%=@num%>"
+	<input type="submit" value= "<%=  @@memo.valor_boton(@num)  %>" id="b<%=@num%>"
 	<%= if @@memo.esta_presionado(@num) == true then "disabled" end %>
 	/>
 </form>
