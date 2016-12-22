@@ -70,7 +70,7 @@ class Memotest
 
 	def muestra_resultado 
 		if (@valor1 == "" or @valor2 == "")
-			@resultado = "No ha presionado los dos botones necesarios."
+			@resultado = "Presione el siguiente."
 		elsif (@valor1 == @valor2 )
 			@resultado = "OK - son iguales"
 			@valor1 = ""

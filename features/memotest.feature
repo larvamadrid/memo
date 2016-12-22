@@ -7,7 +7,7 @@ Scenario: Pantalla de Inicio
 Scenario: Presiona boton 1
 	Given Accedo Tablero
 	When se presiona el boton 1
-	Then  veo  "No ha presionado los dos botones necesarios."
+	Then  veo  "Presione el siguiente."
 
 Scenario: Presiona boton 1, presiona boton 3
 	Given Accedo Tablero

@@ -4,7 +4,7 @@ describe "Game de memoTest" do
 
 	it "Verifica que los dos botones se hayan presionado " do
 		memo = Memotest.new(2,4)
-		memo.muestra_resultado.should == "No ha presionado los dos botones necesarios."
+		memo.muestra_resultado.should == "Presione el siguiente."
 	end
 
 	it "Presiona boton 1 y boton 2" do
