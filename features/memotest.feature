@@ -9,8 +9,8 @@ Scenario: Presiona boton 1
 	When se presiona el boton 1
 	Then  veo  "Presione el siguiente."
 
-Scenario: Presiona boton 1, presiona boton 3
+Scenario: Presiona 2 iguales
 	Given Accedo Tablero
 	When se presiona el boton 1
-	When se presiona el boton 5
+	When se presiona el boton 7
 	Then  veo  "OK - son iguales"

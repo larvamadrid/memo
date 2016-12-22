@@ -19,10 +19,10 @@ describe "Game de memoTest" do
 		memo.presiona 3
 		memo.muestra_resultado.should == ":( - no son iguales"
 	end
-	it "Presiona boton 1 y boton 4" do
+	it "Presiona 2 iguales" do
 		memo = Memotest.new(2,4)
 		memo.presiona 1
-		memo.presiona 5
+		memo.presiona 7
 		memo.muestra_resultado.should == "OK - son iguales"
 	end
 

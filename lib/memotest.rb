@@ -7,7 +7,7 @@ class Memotest
 		@boton_presionado =""
 		@presionado = []
 		@correctos = []
-		@valoresbotones =["-","A","C","D","B","A","C","D","B"]
+		@valoresbotones =["-","A","C","D","B","D","B","A","C"]
 		@intentos = 0
 		@maximo = 5
 
