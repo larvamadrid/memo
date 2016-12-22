@@ -1,36 +1,59 @@
-<img src="/img/Logo.png" alt="Tablero Memotest"/>
-</br>
-<% @fila = 0 %>
-<% @columna = 0 %>
-<% @num = 0 %>
-<table>
-<% @@filas.times do %>
-<% @fila += 1 %>
+<!DOCTYPE html>
+<html>
+<head>
+	<title> MemoTest </title>
+</head>
+<body>
+<table align="center" width=800>
+
+	<tr>
+	<td colspan=2>
+	<img src="/img/Logo.png" alt="Tablero Memotest"/>
+	</td>
+	</tr>
 <tr>
-<% @@columnas.times do %>
-<% @columna += 1 %>
-<% @num += 1 %>
-<td>
+	<td>
+	<% @fila = 0 %>
+	<% @columna = 0 %>
+	<% @num = 0 %>
+	<table>
+	<% @@filas.times do %>
+	<% @fila += 1 %>
+	<tr>
+	<% @@columnas.times do %>
+	<% @columna += 1 %>
+	<% @num += 1 %>
+	<td>
 
-<form method="post" action="/presionaBoton/<%=@num%>">
-	<input type="image" width=125 height=125 src= "/img/<%=@@memo.valor_boton(@num)%>.jpg" alt=<%=@@memo.valor_boton(@num)%> id="b<%=@num%>"
-	<%= if @@memo.esta_presionado(@num) == true then "disabled" end %>
-	/>
-</form>
+	<form method="post" action="/presionaBoton/<%=@num%>">
+		<input type="image" width=125 height=125 src= "/img/<%=@@memo.valor_boton(@num)%>.jpg" alt=<%=@@memo.valor_boton(@num)%> id="b<%=@num%>"
+		<%= if @@memo.esta_presionado(@num) == true then "disabled" end %>
+		/>
+	</form>
 
-</td>
-<% end %>
+	</td>
+	<% end %>
+	</tr>
+	<% end %>
+	</table>
+	</td>
+	<td>
+	<p>Vidas: <%=@@intentos%></p>
+	<p><bold> <%= @resultado %></bold></p>
+	<% if (@resultado == "LOSER") %>
+	 <img src="/img/Loser.jpg" width=250 heigth=250  >
+	<% end %>
+	<% if (@resultado == "WINNER") %>
+	 <img src="/img/ThumbsUP.jpg" width=250 heigth=250 >
+	<% end %>
+	<form method="post" action="/reset">
+		<input type="submit" value="Reiniciar" />
+	</form>
+	</td>
 </tr>
-<% end %>
 </table>
-<p>Vidas: <%=@@intentos%></p>
-<p><bold> <%= @resultado %></bold></p>
-<% if (@resultado == "LOSER") %>
- <img src="/img/Loser.jpg" width=250 heigth=250  >
-<% end %>
-<% if (@resultado == "WINNER") %>
- <img src="/img/ThumbsUP.jpg" width=250 heigth=250 >
-<% end %>
-<form method="post" action="/reset">
-	<input type="submit" value="Reiniciar" />
-</form>
+</body>
+</html>
+
+
+
